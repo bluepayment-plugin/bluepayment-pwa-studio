@@ -1,0 +1,11 @@
+{
+    "bluepayment.note": "After placing the order, you will be redirected to the payment page.",
+    "bluepaymentPage.header": "Order placed - status: ",
+    "bluepaymentPage.pending": "Your order has been accepted - we are waiting for payment.",
+    "bluepaymentPage.pendingSecond": "As soon as we receive positive information - the order will be transferred for execution.",
+    "bluepaymentPage.success": "Your order has been paid.",
+    "bluepaymentPage.successSecond": "The order is processed.",
+    "bluepaymentPage.failure": "The order has not been paid.",
+    "bluepaymentPage.failureSecond": "Retry your payment via the link below or contact us.",
+    "bluepaymentPage.orderNumber": "Order number: "
+}

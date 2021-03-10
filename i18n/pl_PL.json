@@ -1,0 +1,11 @@
+{
+    "bluepayment.note": "Po złożeniu zamówienia, zostaniesz przekierowany na stronę płatności.",
+    "bluepaymentPage.header": "Zamówienie przyjęte - status zamówienia: ",
+    "bluepaymentPage.pending": "Twoje zamówienie zostało przyjęte - oczekujemy na płatność.",
+    "bluepaymentPage.pendingSecond": "Jak tylko otrzymamy pozytywną informację - zamówienie zostanie przekazane do realizacji.",
+    "bluepaymentPage.success": "Twoje zamówienie zostało opłacone",
+    "bluepaymentPage.successSecond": "Zamówienie zostało przekazane do realizacji.",
+    "bluepaymentPage.failure": "Zamówienie nie zostało opłacone.",
+    "bluepaymentPage.failureSecond": "Ponów płatność poprzez poniższy link, lub skontaktuj się z nami.",
+    "bluepaymentPage.orderNumber": "Numer zamówienia: "
+}

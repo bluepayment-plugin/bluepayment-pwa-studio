@@ -1,0 +1,16 @@
+.root {
+    display: grid;
+    padding: 2.5rem 3rem;
+    row-gap: 2rem;
+}
+
+.title {
+    justify-self: center;
+    font-family: var(--venia-global-fontFamily-serif);
+}
+
+.info {
+    justify-self: center;
+    margin: 15px auto;
+    text-align: center;
+}
