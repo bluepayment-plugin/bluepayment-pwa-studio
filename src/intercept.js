@@ -34,7 +34,7 @@ module.exports = targets => {
     targets.of('@magento/venia-ui').checkoutPagePaymentTypes.tap(payments =>
         payments.add({
             paymentCode: 'bluepayment',
-            importPath: '@bm/bluepayment-pwa/src/components/bluepayment.js'
+            importPath: '@bluemedia/bluepayment-pwa/src/components/bluepayment.js'
         })
     );
 
@@ -42,7 +42,7 @@ module.exports = targets => {
         routes.push({
             name: 'BluePaymentPage',
             pattern: '/bluepayment',
-            path: '@bm/bluepayment-pwa/src/components/BluePaymentPage/'
+            path: '@bluemedia/bluepayment-pwa/src/components/BluePaymentPage/'
         });
 
         return routes;

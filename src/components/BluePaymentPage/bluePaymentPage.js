@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {mergeClasses} from "@magento/venia-ui/lib/classify";
 import defaultClasses from './bluePaymentPage.css';
-import {useBluePaymentPage} from "@bm/bluepayment-pwa/src/talons/BluePaymentPage/useBluePaymentPage";
+import {useBluePaymentPage} from "@bluemedia/bluepayment-pwa/src/talons/BluePaymentPage/useBluePaymentPage";
 import LoadingIndicator from "@magento/venia-ui/lib/components/LoadingIndicator";
 import {FormattedMessage} from "react-intl";
 import {useToasts} from "@magento/peregrine/lib/Toasts";
