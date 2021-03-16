@@ -1,7 +1,7 @@
 {
-  "name": "@bm/bluepayment-pwa",
+  "name": "@bluemedia/bluepayment-pwa",
   "author": "Krzysztof Graman <krzysztof@devmouse.pl>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/intercept.js",
   "pwa-studio": {
     "targets": {
@@ -58,5 +58,11 @@
     "prettier": "^1.9.2",
     "prettier-check": "^2.0.0",
     "react-test-renderer": "^16.14.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.blue.pl:PayBM_eCommercePlugins/bluepayment-pwa.git"
+  },
+  "license": "ISC",
+  "description": ""
 }
