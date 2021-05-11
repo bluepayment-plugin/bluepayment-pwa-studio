@@ -11,6 +11,8 @@ import { useUserContext } from '@magento/peregrine/lib/context/user';
 import { useCartContext } from '@magento/peregrine/lib/context/cart';
 import CheckoutError from '@magento/peregrine/lib/talons/CheckoutPage/CheckoutError';
 import bluepaymentOperations from "../../components/bluepayment.gql";
+import mergeOperations from '@magento/peregrine/lib/util/shallowMerge';
+import DEFAULT_OPERATIONS from '@magento/peregrine/lib/talons/CheckoutPage/checkoutPage.gql.js';
 
 export const CHECKOUT_STEP = {
     SHIPPING_ADDRESS: 1,
@@ -19,15 +21,16 @@ export const CHECKOUT_STEP = {
     REVIEW: 4
 };
 
-export const useCheckoutPage = props => {
+export const useCheckoutPage = (props = {}) => {
+    const operations = mergeOperations(DEFAULT_OPERATIONS, props.operations);
+
     const {
-        mutations: { createCartMutation, placeOrderMutation },
-        queries: {
-            getCheckoutDetailsQuery,
-            getCustomerQuery,
-            getOrderDetailsQuery
-        }
-    } = props;
+        createCartMutation,
+        getCheckoutDetailsQuery,
+        getCustomerQuery,
+        getOrderDetailsQuery,
+        placeOrderMutation
+    } = operations;
 
     const { getRedirectUrlQuery } = bluepaymentOperations;
 
@@ -234,6 +237,9 @@ export const useCheckoutPage = props => {
 
     return {
         activeContent,
+        availablePaymentMethods: checkoutData
+            ? checkoutData.cart.available_payment_methods
+            : null,
         cartItems,
         checkoutStep,
         customer,

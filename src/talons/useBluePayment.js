@@ -1,5 +1,5 @@
-import {useCallback, useEffect} from 'react';
-import {useMutation} from '@apollo/client';
+import {useCallback, useEffect, useState} from 'react';
+import {useMutation, useQuery} from '@apollo/client';
 import {useCartContext} from '@magento/peregrine/lib/context/cart';
 
 /**
@@ -12,11 +12,15 @@ export const useBluePayment = (props = {}) => {
     const {
         resetShouldSubmit,
         onPaymentSuccess,
-        setPaymentMethodOnCartMutation
+        setPaymentMethodOnCartMutation,
+        getCartTotals,
+        code
     } = props;
 
     // const backUrl = window.location.origin + '/bluepayment';
-    const backUrl = window.location.protocol + '//' + window.location.hostname  + '/bluepayment';
+    const backUrl = window.location.protocol + '//' + window.location.hostname + '/bluepayment';
+    const gatewayIdFromCode = code && code.startsWith('bluepayment_') ? code.replace('bluepayment_', '') : null;
+    const [gatewayId, setGatewayId] = useState(gatewayIdFromCode);
 
     const [
         updatePaymentMethod,
@@ -27,7 +31,24 @@ export const useBluePayment = (props = {}) => {
         }
     ] = useMutation(setPaymentMethodOnCartMutation, {
         skip: !cartId,
-        variables: {cartId, backUrl}
+        variables: {
+            cartId,
+            backUrl,
+            gatewayId
+        }
+    });
+
+    /**
+     * Queries
+     */
+    const {
+        data: cartData,
+        loading: cartLoading
+    } = useQuery(getCartTotals, {
+        fetchPolicy: 'cache-and-network',
+        nextFetchPolicy: 'cache-first',
+        skip: !cartId || !getCartTotals,
+        variables: {cartId}
     });
 
     const onBillingAddressChangedError = useCallback(() => {
@@ -60,8 +81,24 @@ export const useBluePayment = (props = {}) => {
         onPaymentSuccess
     ]);
 
+    const handleGatewayClick = useCallback(gateway => {
+        setGatewayId(gateway.gateway_id);
+    }, [setGatewayId]);
+
+    const handleGatewayKeyPress = useCallback((gateway, event) => {
+        if (event.key === 'Enter') {
+            setGatewayId(gateway.gateway_id);
+        }
+    }, [setGatewayId]);
+
     return {
         onBillingAddressChangedError,
-        onBillingAddressChangedSuccess
+        onBillingAddressChangedSuccess,
+        setGatewayId,
+        gatewayId,
+        handleGatewayClick,
+        handleGatewayKeyPress,
+        cart: cartData ? cartData.cart : null,
+        cartLoading
     };
 };

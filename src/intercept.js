@@ -31,12 +31,18 @@ module.exports = targets => {
     })
 
 
-    targets.of('@magento/venia-ui').checkoutPagePaymentTypes.tap(payments =>
+    targets.of('@magento/venia-ui').checkoutPagePaymentTypes.tap(payments => {
         payments.add({
             paymentCode: 'bluepayment',
             importPath: '@bluemedia/bluepayment-pwa/src/components/bluepayment.js'
-        })
-    );
+        });
+        payments.add({
+            paymentCode: 'bluepaymentSeparated',
+            importPath: '@bluemedia/bluepayment-pwa/src/components/bluepaymentSeparated.js'
+        });
+
+        return payments;
+    });
 
     targets.of('@magento/venia-ui').routes.tap(routes => {
         routes.push({

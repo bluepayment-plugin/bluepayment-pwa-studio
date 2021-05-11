@@ -1,8 +1,8 @@
 {
   "name": "@bluemedia/bluepayment-pwa",
   "author": "Krzysztof Graman <krzysztof@devmouse.pl>",
-  "version": "0.0.2",
-  "main": "src/intercept.js",
+  "version": "0.0.3",
+  "main": "src/index.js",
   "pwa-studio": {
     "targets": {
       "intercept": "src/intercept.js"
@@ -27,10 +27,10 @@
     }
   },
   "peerDependencies": {
-    "@magento/peregrine": ">= 8.0.0",
-    "@magento/pwa-buildpack": "~7.0.0",
-    "@magento/venia-ui": ">= 5.0.0",
-    "react": "~16.9.0",
+    "@magento/peregrine": "~10.0.0",
+    "@magento/pwa-buildpack": "~9.0.0",
+    "@magento/venia-ui": "~7.0.0",
+    "react": "~17.0.1",
     "react-intl": "~5.7.0",
     "react-router-dom": "~5.1.0"
   },
@@ -57,7 +57,8 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.9.2",
     "prettier-check": "^2.0.0",
-    "react-test-renderer": "^16.14.0"
+    "react-test-renderer": "^16.14.0",
+    "@magento/peregrine": "^10.0.0"
   },
   "repository": {
     "type": "git",

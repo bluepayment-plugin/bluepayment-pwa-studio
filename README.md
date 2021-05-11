@@ -1,6 +1,14 @@
 # Moduł BluePayment dla Venia PWA 
 
-## Instalacia @magento/venia-concept
+## Changelog
+### 0.0.3
+- Dodanie whitelabel
+- Oznaczanie kanałów jako "oddzielna metoda płatności"
+
+### 0.0.1
+- Inicjalna wersja
+
+## Instalacja @magento/venia-concept
 
 ```bash
 yarn create @magento/pwa
@@ -30,3 +38,11 @@ yarn start
 ```bash
 yarn add @bluemedia/bluepayment-pwa
 ```
+
+## Changelog
+
+### 0.0.3
+
+- Aktualizacja do wersji pwa-studio v10.0.0
+- Dodanie wyboru kanału płatności w sklepie
+- Obsługa "Traktuj jako oddzielną metodę płatności"
