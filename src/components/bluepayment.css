@@ -65,3 +65,11 @@
 .gatewayName {
 
 }
+
+.agreementsContainer {
+    padding: 15px 0;
+}
+.agreement {
+    margin: 10px 0;
+    word-break: break-all;
+}

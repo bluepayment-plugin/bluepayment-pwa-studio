@@ -16,6 +16,7 @@ const BluePayment = props => {
     const {
         setPaymentMethodOnCartMutation,
         getBluePaymentGateways,
+        getBluePaymentAgreements,
         getCartTotals
     } = bluepaymentOperations;
 
@@ -25,11 +26,15 @@ const BluePayment = props => {
         gatewayId,
         handleGatewayClick,
         handleGatewayKeyPress,
+        agreementsLoading,
+        agreements,
+        handleCheckAgreement,
         cart
     } = useBluePayment({
         setPaymentMethodOnCartMutation,
         resetShouldSubmit,
         onPaymentSuccess,
+        getBluePaymentAgreements,
         getCartTotals
     });
 
@@ -47,8 +52,39 @@ const BluePayment = props => {
     );
 
     if (bluePaymentGatewaysLoading) {
-        return (<LoadingIndicator></LoadingIndicator>);
+        return <LoadingIndicator></LoadingIndicator>;
     }
+
+    const agreementsBlock = agreementsLoading
+        ? <LoadingIndicator></LoadingIndicator>
+        : agreements && <div className={classes.agreementsContainer}>
+            {agreements.map(agreement => {
+                return <div
+                    key={agreement.regulation_id}
+                >
+                    {agreement.label_list.map(label => {
+                        if (label.show_checkbox) {
+                            return <div key={label.label_id} className={classes.agreement}>
+                                <input type="checkbox"
+                                       id={'agreement_' + label.label_id}
+                                       name={agreement.regulation_id}
+                                       onChange={handleCheckAgreement}/>
+
+                                <label
+                                    dangerouslySetInnerHTML={{__html: label.label}}
+                                    htmlFor={'agreement_' + label.label_id}/>
+                            </div>
+                        }
+
+                        return <div
+                            key={label.label_id}
+                            className={classes.agreement}
+                            dangerouslySetInnerHTML={{__html: label.label}}
+                         />;
+                    })}
+                </div>;
+            })}
+        </div>;
 
     return (
         <div className={classes.root}>
@@ -80,6 +116,8 @@ const BluePayment = props => {
                 })}
             </div>
 
+            {agreementsBlock}
+
             <BillingAddress
                 shouldSubmit={props.shouldSubmit}
                 onBillingAddressChangedError={onBillingAddressChangedError}
@@ -100,7 +138,9 @@ BluePayment.propTypes = {
         gateway: string,
         gateway_selected: string,
         gatewayLogo: string,
-        gatewayName: string
+        gatewayName: string,
+        agreementsContainer: string,
+        agreement: string
     }),
     shouldSubmit: bool.isRequired,
     onPaymentSuccess: func,

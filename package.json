@@ -1,7 +1,7 @@
 {
   "name": "@bluemedia/bluepayment-pwa",
   "author": "Krzysztof Graman <krzysztof@devmouse.pl>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.js",
   "pwa-studio": {
     "targets": {

@@ -17,8 +17,7 @@ const BluePaymentSeparated = props => {
 
     const {
         onBillingAddressChangedError,
-        onBillingAddressChangedSuccess,
-        gatewayId
+        onBillingAddressChangedSuccess
     } = useBluePayment({
         setPaymentMethodOnCartMutation,
         resetShouldSubmit,

@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const SET_PAYMENT_METHOD_ON_CART = gql`
-    mutation setPaymentMethodOnCart($cartId: String!, $backUrl: String!, $gatewayId: Int) {
+    mutation setPaymentMethodOnCart($cartId: String!, $backUrl: String!, $gatewayId: Int, $agreementsIds: String) {
         setPaymentMethodOnCart(
             input: {
                 cart_id: $cartId
@@ -10,7 +10,8 @@ export const SET_PAYMENT_METHOD_ON_CART = gql`
                     bluepayment: {
                         create_payment: true,
                         back_url: $backUrl,
-                        gateway_id: $gatewayId
+                        gateway_id: $gatewayId,
+                        agreements_ids: $agreementsIds
                     }
                 }
             }
@@ -43,6 +44,23 @@ export const GET_BLUEPAYMENT_GATEWAYS = gql`
     }
 `;
 
+export const GET_BLUEPAYMENT_AGREEMENTS = gql`
+    query getBluePaymentAgreements($gatewayId: Int!, $currency: CurrencyEnum!, $locale: String!) {
+        bluepaymentAgreements(gateway_id: $gatewayId, currency: $currency, locale: $locale) {
+            regulation_id
+            type
+            url
+            label_list {
+                label_id
+                label
+                placement
+                show_checkbox
+                checkbox_required
+            }
+        }
+    }
+`;
+
 export const GET_CART_TOTALS = gql`
     query getCartTotals($cartId: String!) {
         cart(cart_id: $cartId) {
@@ -60,5 +78,6 @@ export default {
     setPaymentMethodOnCartMutation: SET_PAYMENT_METHOD_ON_CART,
     getRedirectUrlQuery: GET_REDIRECT_URL,
     getBluePaymentGateways: GET_BLUEPAYMENT_GATEWAYS,
+    getBluePaymentAgreements: GET_BLUEPAYMENT_AGREEMENTS,
     getCartTotals: GET_CART_TOTALS
 };

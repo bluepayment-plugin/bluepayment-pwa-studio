@@ -173,9 +173,10 @@ export const useCheckoutPage = (props = {}) => {
                 query: getRedirectUrlQuery,
                 variables: {
                     orderNumber: placeOrderData.placeOrder.order.order_number
-                    // orderNumber: "4000000013"
                 }
             });
+
+            console.log(data);
 
             if (data && data.redirectUrl) {
                 window.location = data.redirectUrl;
@@ -206,6 +207,8 @@ export const useCheckoutPage = (props = {}) => {
                 await createCart({
                     fetchCartId
                 });
+
+                console.log('redirect');
 
                 await handleRedirect();
             } catch (err) {
