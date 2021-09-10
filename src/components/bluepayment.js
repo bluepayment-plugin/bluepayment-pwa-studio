@@ -122,6 +122,7 @@ const BluePayment = props => {
                 shouldSubmit={props.shouldSubmit}
                 onBillingAddressChangedError={onBillingAddressChangedError}
                 onBillingAddressChangedSuccess={onBillingAddressChangedSuccess}
+                resetShouldSubmit={resetShouldSubmit}
             />
         </div>
     );
