@@ -1,7 +1,7 @@
 {
   "name": "@bluemedia/bluepayment-pwa",
   "author": "Krzysztof Graman <krzysztof@devmouse.pl>",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "src/index.js",
   "pwa-studio": {
     "targets": {
@@ -38,6 +38,7 @@
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
+    "@magento/peregrine": "^10.0.0",
     "@testing-library/react": "^11.1.0",
     "babel-eslint": "~10.0.1",
     "babel-jest": "^26.5.2",
@@ -57,8 +58,7 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.9.2",
     "prettier-check": "^2.0.0",
-    "react-test-renderer": "^16.14.0",
-    "@magento/peregrine": "^10.0.0"
+    "react-test-renderer": "^16.14.0"
   },
   "repository": {
     "type": "git",
