@@ -52,11 +52,11 @@ const BluePayment = props => {
     );
 
     if (bluePaymentGatewaysLoading) {
-        return <LoadingIndicator></LoadingIndicator>;
+        return <LoadingIndicator/>;
     }
 
     const agreementsBlock = agreementsLoading
-        ? <LoadingIndicator></LoadingIndicator>
+        ? <LoadingIndicator/>
         : agreements && <div className={classes.agreementsContainer}>
             {agreements.map(agreement => {
                 return <div

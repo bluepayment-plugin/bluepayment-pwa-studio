@@ -93,6 +93,13 @@ export const useBluePayment = (props = {}) => {
         updatePaymentMethod();
     }, [updatePaymentMethod]);
 
+    const handleGatewayClick = useCallback(gateway => {
+        setGatewayId(gateway.gateway_id);
+        getAgreements({variables:{
+                gatewayId: gateway.gateway_id
+            }});
+    }, [setGatewayId, getAgreements]);
+
     useEffect(() => {
         const paymentMethodMutationCompleted =
             paymentMethodMutationCalled && !paymentMethodMutationLoading;
@@ -115,13 +122,6 @@ export const useBluePayment = (props = {}) => {
         onPaymentSuccess
     ]);
 
-    const handleGatewayClick = useCallback(gateway => {
-        setGatewayId(gateway.gateway_id);
-        getAgreements({variables:{
-            gatewayId: gateway.gateway_id
-        }});
-    }, [setGatewayId, getAgreements]);
-
     const handleGatewayKeyPress = useCallback((gateway, event) => {
         if (event.key === 'Enter') {
             setGatewayId(gateway.gateway_id);
@@ -143,6 +143,7 @@ export const useBluePayment = (props = {}) => {
         cart: cartData ? cartData.cart : null,
         cartLoading,
         selectedAgreements,
-        handleCheckAgreement
+        handleCheckAgreement,
+        getAgreements
     };
 };
