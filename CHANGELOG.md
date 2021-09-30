@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.6
+## 0.0.7
 - Dodanie obsługi zgód formalnych
 
 ## 0.0.3
