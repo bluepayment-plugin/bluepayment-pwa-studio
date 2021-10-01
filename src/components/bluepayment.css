@@ -18,3 +18,58 @@
 .note {
     padding-bottom: 1rem;
 }
+
+.gatewayContainer {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 640px) {
+    .gatewayContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 384px) {
+    .gatewayContainer {
+        grid-template: none;
+    }
+}
+
+.gateway {
+    border: 2px solid rgb(var(--venia-global-color-gray-400));
+    border-radius: 0.375rem;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: border-color 384ms var(--venia-global-anim-in);
+}
+
+.gateway:focus {
+    box-shadow: -6px 6px rgb(var(--venia-global-color-blue-700) / 0.3);
+}
+.gateway:hover {
+    border-color: rgb(var(--venia-brand-color-1-600));
+}
+
+.gateway_selected {
+    composes: gateway;
+    border-color: rgb(var(--venia-brand-color-1-600));
+    cursor: default;
+}
+
+.gatewayLogo {
+    width: 100px;
+}
+.gatewayName {
+
+}
+
+.agreementsContainer {
+    padding: 15px 0;
+}
+.agreement {
+    margin: 10px 0;
+    word-break: break-all;
+}
