@@ -176,8 +176,6 @@ export const useCheckoutPage = (props = {}) => {
                 }
             });
 
-            console.log(data);
-
             if (data && data.redirectUrl) {
                 window.location = data.redirectUrl;
             }

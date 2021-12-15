@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const SET_PAYMENT_METHOD_ON_CART = gql`
-    mutation setPaymentMethodOnCart($cartId: String!, $backUrl: String!, $gatewayId: Int, $agreementsIds: String) {
+    mutation setPaymentMethodOnCart($cartId: String!, $backUrl: String!, $gatewayId: String, $agreementsIds: String) {
         setPaymentMethodOnCart(
             input: {
                 cart_id: $cartId
@@ -45,7 +45,7 @@ export const GET_BLUEPAYMENT_GATEWAYS = gql`
 `;
 
 export const GET_BLUEPAYMENT_AGREEMENTS = gql`
-    query getBluePaymentAgreements($gatewayId: Int!, $currency: CurrencyEnum!, $locale: String!) {
+    query getBluePaymentAgreements($gatewayId: ID!, $currency: CurrencyEnum!, $locale: String!) {
         bluepaymentAgreements(gateway_id: $gatewayId, currency: $currency, locale: $locale) {
             regulation_id
             type
