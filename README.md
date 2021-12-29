@@ -1,4 +1,4 @@
-### PWA Studio (Venia)
+## PWA Studio (Venia)
 Dzięki integracji możesz stworzyć aplikację internetową uruchamianą jak zwykła strona www, ale sprawiającą wrażenie natywnej aplikacji mobilnej.
 W PWA dostępne są:
 
@@ -9,7 +9,7 @@ W PWA dostępne są:
   - płatności Apple Pay  z przekierowaniem na dedykowany paywall z przyciskiem "Zapłać z Apple Pay"
   - płatności BLIK z przekierowaniem na eblik.pl
 
-#### Tabela kompatybilności
+## Tabela kompatybilności
 
 | BlueMedia_BluePayment | BlueMedia_BluePaymentGraphQL | bluemedia/bluepayment-pwa (JS) | Magento | Magento PWA |
 | --- | --- | --- | --- |--- |
